@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleFirstApp.Views.HomePage"
+             xmlns:vm="clr-namespace:SimpleFirstApp.ViewModels"
+             BackgroundColor="Gray"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="icon8.png"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel />
+    </ContentPage.BindingContext>
+
+
+    <StackLayout x:Name="stackLayout1" Spacing="8">
+        <Grid>
+            
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Button Text="Null/Null 0.00 0.00 Обмінники"
+        BackgroundColor="Black"
+        CornerRadius="20"
+        TextColor="White"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Margin="5"
+        HeightRequest="100"
+        Grid.Column="0" Grid.Row="1"/>
+                <Button Text="Null/Null 0.00 0.00 Міжбанк"
+        BackgroundColor="Black"
+        CornerRadius="20"
+        TextColor="White"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Margin="5"
+        Grid.Column="1" Grid.Row="1"/>
+                <Button Text="Null         0.00           НБУ"
+        BackgroundColor="Black"
+        CornerRadius="20"
+        TextColor="White"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Margin="5"
+        Grid.Column="2" Grid.Row="1"/>
+                <Button Text="USD 00.00"
+        BackgroundColor="Black"
+        CornerRadius="20"
+        TextColor="White"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand"
+        Margin="5"
+        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"/>
+            </Grid>
+        </Grid>
+        <Grid>
+            <BoxView Color="Black"
+             CornerRadius="10"
+             />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <StackLayout x:Name="stackLayout2" Spacing="0" Orientation="Horizontal" Grid.Row="0">
+                    <Button Text = "Всі"  WidthRequest="131" BackgroundColor="Transparent"/>
+                    <Button Text = "Банки" WidthRequest="131" BackgroundColor="Transparent"/>
+                    <Button Text = "Обмінники" WidthRequest="131" BackgroundColor="Transparent"/>
+                </StackLayout>
+                <StackLayout x:Name="stackLayout3" Spacing="0" Orientation="Horizontal" Grid.Row="1">
+                    <Label Text="" WidthRequest="240"/>
+                    <Label Text="Купівля" WidthRequest="80" TextColor="White"/>
+                    <Label Text="Продаж" WidthRequest="80" TextColor="White"/>
+                </StackLayout>
+                <Label Text="Account Balance"
+                   FontAttributes="Bold" TextColor="White"
+                   FontSize="Large" Grid.Column="0" Grid.Row="2"/>
+                <Label Text="Account Balance"
+                   FontAttributes="Bold" TextColor="White"
+                   FontSize="Large" Grid.Column="0" Grid.Row="3"/>
+                <Label Text="Account Balance"
+                   FontAttributes="Bold" TextColor="White"
+                   FontSize="Large" Grid.Column="0" Grid.Row="4"/>
+                <Label Text="Account Balance"
+                   FontAttributes="Bold" TextColor="White"
+                   FontSize="Large" Grid.Column="0" Grid.Row="5"/>
+                <Label Text="Account Balance"
+                   FontAttributes="Bold" TextColor="White"
+                   FontSize="Large" Grid.Column="0" Grid.Row="6"/>
+            </Grid>
+        </Grid>
+    </StackLayout>
+    
+
+
+</ContentPage>
