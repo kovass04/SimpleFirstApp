@@ -1,5 +1,4 @@
-﻿using SimpleFirstApp.Services;
-using SimpleFirstApp.Views;
+﻿using SimpleFirstApp.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -13,7 +12,7 @@ namespace SimpleFirstApp
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+
             MainPage = new AppShell();
         }
 

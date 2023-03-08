@@ -1,18 +1,16 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SimpleFirstApp.Models
 {
-    public class Data
+    public class DataAssets
     {
-        public Datum[] data { get; set; }
+        public Assets[] data { get; set; }
         public long timestamp { get; set; }
     }
 
-    public class Datum
+    public class Assets
     {
         public string id { get; set; }
         public string rank { get; set; }

@@ -1,27 +1,29 @@
-﻿using Newtonsoft.Json;
-using SimpleFirstApp.Models;
-using SimpleFirstApp.ViewModels;
+﻿using SimpleFirstApp.ViewModels.TabViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SimpleFirstApp.Views
+namespace SimpleFirstApp.Views.TabView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MyPage : ContentPage
+    public partial class HomeView : ContentPage
     {
-        MyViewModel _viewModel;
-        public MyPage()
+        HomeViewModel _viewModel;
+        public HomeView()
         {
             InitializeComponent();
 
-            BindingContext = _viewModel = new MyViewModel();
+            BindingContext = _viewModel = new HomeViewModel();
+
+        }
+        private async void ProfileButton_Click(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingView());
         }
 
         protected override void OnAppearing()
@@ -29,6 +31,5 @@ namespace SimpleFirstApp.Views
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
-
     }
 }

@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleFirstApp.Views.TabView.HomeView"
+ 
+                NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout
+            BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
+            <Grid
+                ColumnDefinitions="*, Auto"
+                RowDefinitions="Auto, Auto"
+                RowSpacing="0"
+                Margin="20, 10, 20, 5">
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Style="{StaticResource Body1FontSize_ExoRegular}"
+                    Text="{Binding Title}"
+                    TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"></Label>
+                <Label
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Style="{StaticResource Body1FontSize_ExoBold}"
+                    Text="Test Crypto App"
+                    TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"></Label>
+
+
+
+
+                <Button 
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Text = "Profile" FontSize="Large" BorderWidth="1"
+                        HorizontalOptions="Center"
+                        Clicked="ProfileButton_Click" 
+                    Style="{StaticResource Headline2FontSize_FontAwesome}"
+
+                    Margin="5, 0, 5, 0"/>
+
+            </Grid>
+
+            <Label
+                Text="Top 3 Crypto"
+                Style="{StaticResource Body1FontSize_ExoBold}"
+                Margin="20, 0, 20, 0"></Label>
+            <StackLayout HeightRequest="100">
+
+                <ListView ItemsSource="{Binding Asset}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid>
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="3"
+                                        VerticalOptions="Center"
+                                    Text="{Binding id}"
+                                    Style="{StaticResource Body1FontSize_ExoRegular}"
+                                    
+                                    ></Label>
+
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    
+                                    Margin="0, 0, 0, 0"
+                                        VerticalOptions="Center"
+
+                                    Text="{Binding priceUsd}"
+                                        MaxLines="1"
+                                    Style="{StaticResource Body1FontSize_ExoBold}"></Label>
+                                    <Label
+                                    Grid.Row="0"
+
+                                    Margin="3, 0, 0, 0"
+                                        VerticalOptions="Center"
+
+                                    Text="{Binding symbol}"
+                                    Style="{StaticResource Body2FontSize_ExoRegular}"        
+                                    TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}">
+                                    </Label>
+
+                                </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label
+                                        Text="See full Crypto"
+                                        Style="{StaticResource Link_ExoRegular}"
+                                        Margin="30, 0, 20, 0">
+
+                </Label>
+
+
+
+
+
+            </StackLayout>
+            <Label
+                Text="Top 3 Markets"
+                Style="{StaticResource Body1FontSize_ExoBold}"
+                Margin="20, 0, 20, 0"></Label>
+            <StackLayout HeightRequest="100">
+
+                <ListView ItemsSource="{Binding Market}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid>
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="3"
+                                        VerticalOptions="Center"
+                                    Text="{Binding exchangeId}"
+                                    Style="{StaticResource Body1FontSize_ExoRegular}"
+                                    
+                                    ></Label>
+
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    
+                                    Margin="0, 0, 0, 0"
+                                        VerticalOptions="Center"
+
+                                    Text="{Binding rank}"
+                                        MaxLines="1"
+                                    Style="{StaticResource Body1FontSize_ExoBold}"></Label>
+                                    <Label
+                                    Grid.Row="0"
+
+                                    Margin="3, 0, 0, 0"
+                                        VerticalOptions="Center"
+
+                                    Text="{Binding baseSymbol}"
+                                    Style="{StaticResource Body2FontSize_ExoRegular}"        
+                                    TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}">
+                                    </Label>
+
+                                </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label
+                                        Text="See full Markets"
+                                        Style="{StaticResource Link_ExoRegular}"
+                                        Margin="30, 0, 20, 0">
+
+                </Label>
+
+
+
+
+
+            </StackLayout>
+            <Label
+                Text="Top 3 Exchanges"
+                Style="{StaticResource Body1FontSize_ExoBold}"
+                Margin="20, 0, 20, 0"></Label>
+            <StackLayout HeightRequest="100">
+
+                <ListView ItemsSource="{Binding Exchange}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+
+                                <Grid>
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="3"
+                                        VerticalOptions="Center"
+                                    Text="{Binding exchangeId}"
+                                    Style="{StaticResource Body1FontSize_ExoRegular}"
+                                    
+                                    ></Label>
+
+                                    <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    
+                                    Margin="0, 0, 0, 0"
+                                        VerticalOptions="Center"
+
+                                    Text="{Binding name}"
+                                        MaxLines="1"
+                                    Style="{StaticResource Body1FontSize_ExoBold}"></Label>
+                                    <Label
+                                    Grid.Row="0"
+
+                                    Margin="3, 0, 0, 0"
+                                        VerticalOptions="Center"
+
+                                    Text="{Binding rank}"
+                                    Style="{StaticResource Body2FontSize_ExoRegular}"        
+                                    TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}">
+                                    </Label>
+
+                                </Grid>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Label
+                                        Text="See full Exchanges"
+                                        Style="{StaticResource Link_ExoRegular}"
+                                        Margin="30, 0, 20, 0">
+
+                </Label>
+
+
+
+
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
