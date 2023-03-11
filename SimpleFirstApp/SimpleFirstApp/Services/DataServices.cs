@@ -45,5 +45,14 @@ namespace SimpleFirstApp.Services
             return JsonConvert.DeserializeObject<DataExchanges>(content);
         }
 
+        public async Task<DataAssetsMarkets> GetMarketsIdAsync(string market)
+        {
+            var response = await _httpClient.GetAsync($"assets/{market}/markets");
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DataAssetsMarkets>(content);
+        }
+
     }
 }

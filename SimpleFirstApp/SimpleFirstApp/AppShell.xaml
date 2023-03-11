@@ -31,7 +31,7 @@
             <ShellContent ContentTemplate="{DataTemplate tabViews:HomeView}" />
         </Tab>
         <Tab Title="Schedule" Route="schedule" Icon="calendar.png">
-            <ShellContent ContentTemplate="{DataTemplate tabViews:HomeView}" />
+            <ShellContent ContentTemplate="{DataTemplate tabViews:MarketsView}" />
         </Tab>
         <Tab Title="Drivers" Route="drivers" Icon="driver.png">
             <ShellContent ContentTemplate="{DataTemplate tabViews:HomeView}" />
