@@ -23,7 +23,7 @@ namespace SimpleFirstApp.Views.TabView
         }
         private async void ProfileButton_Click(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SettingView());
+            await Navigation.PushAsync(new ProfileView());
         }
 
         protected override void OnAppearing()

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="SimpleFirstApp.Views.ProfileView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="Auto, Auto, Auto, *"
+            BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
+            <StackLayout
+                Grid.Row="0"
+                Margin="15, 15, 0, 0"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                >
+
+            </StackLayout>
+            <StackLayout
+                Grid.Row="0"
+                Margin="20">
+                <Image Source="free_icon.png" HeightRequest="50" WidthRequest="50" HorizontalOptions="Start"
+                VerticalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BackCommand}"></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label
+                    Text="Crypto Profile"
+                    Style="{StaticResource Body1FontSize_ExoBold}"
+                    HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1"
+                Orientation="Horizontal"
+                Margin="20, 5">
+                <Label
+                    Text="Dark mode"
+                    Style="{StaticResource Body1FontSize_ExoRegular}"/>
+                <Switch
+                    IsToggled="{Binding IsDarkMode}"
+                    HorizontalOptions="EndAndExpand"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
+                    ThumbColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"
+                    OnColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}">
+                    <Switch.Behaviors>
+                        <xct:EventToCommandBehavior EventName="Toggled" Command="{Binding DarkModeToggleCommand}"></xct:EventToCommandBehavior>
+                    </Switch.Behaviors>
+                </Switch>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="2"
+                Margin="20, 5">
+                <Label
+                    Text="The app is using data from COINCAP API"
+                    Style="{StaticResource Body1FontSize_ExoRegular}"/>
+                <Label
+                    Text="https://docs.coincap.io/"
+                    Style="{StaticResource Link_ExoRegular}">
+                </Label>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
