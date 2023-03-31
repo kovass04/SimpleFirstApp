@@ -1,10 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             
-             x:Class="SimpleFirstApp.Views.TabView.HomeView"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="SimpleFirstApp.Views.TabView.ExchangesView">
 
     <ScrollView>
         <StackLayout
@@ -17,30 +14,12 @@
                 <Label
                     Grid.Column="0"
                     Grid.Row="0"
-                    Style="{StaticResource Body1FontSize_ExoBold}"
+                    Style="{StaticResource Body1FontSize_ExoRegular}"
                     Text="{Binding Title}"
-                    
                     TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"></Label>
-
-
-
-                <buttons:SfButton ImageSource="user.png" ShowIcon="True" Clicked="ProfileButton_Click"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    ImageWidth="40"
-                    BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Grid.RowSpan="2">
-                </buttons:SfButton>
 
             </Grid>
 
-            
-            <Label
-                Text="Crypto"
-                Style="{StaticResource Body1FontSize_ExoBold}"
-                Margin="20, 0, 20, 0"></Label>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -53,12 +32,12 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Name" Grid.Column="0" />
-                <Label Text="Price" Grid.Column="1" />
-                <Label Text="Choice" Grid.Column="2" />
+                <Label Text="Rank" Grid.Column="0" />
+                <Label Text="Name" Grid.Column="1" />
+                <Label Text="Url" Grid.Column="2" />
 
                 <!-- ListView control -->
-                <ListView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Asset}">
+                <ListView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Exchange}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -68,15 +47,16 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding symbol}" Grid.Column="0" />
-                                    <Label Text="{Binding priceUsd}" Grid.Column="1" />
-                                    <Button Grid.Column="2" Text="-->" Clicked="OnButtonClicked"  CommandParameter="{Binding id}"/>
+                                    <Label Text="{Binding rank}" Grid.Column="0" />
+                                    <Label Text="{Binding name}" Grid.Column="1" />
+                                    <Label Text="{Binding exchangeUrl}" Grid.Column="2" />
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
+
             
         </StackLayout>
     </ScrollView>

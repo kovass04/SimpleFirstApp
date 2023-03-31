@@ -26,6 +26,14 @@ namespace SimpleFirstApp.Services
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<DataAssets>(content);
         }
+        public async Task<DataAssetsId> GetAssetsIdAsync(string Id)
+        {
+            var response = await _httpClient.GetAsync($"assets/{Id}");
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DataAssetsId>(content);
+        }
 
         public async Task<DataMarkets> GetMarketsAsync()
         {
@@ -53,6 +61,14 @@ namespace SimpleFirstApp.Services
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<DataAssetsMarkets>(content);
         }
+        //assets/bitcoin/history?interval=d1
+        public async Task<DataCharts> GetChartsAsync(string assetId)
+        {
+            var response = await _httpClient.GetAsync($"assets/{assetId}/history?interval=d1");
+            response.EnsureSuccessStatusCode();
 
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<DataCharts>(content);
+        }
     }
 }

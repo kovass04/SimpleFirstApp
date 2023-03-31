@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimpleFirstApp.Views.TabView.MarketsView"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms">
 
     <ScrollView>
         <StackLayout
@@ -18,6 +19,15 @@
                     Style="{StaticResource Body1FontSize_ExoRegular}"
                     Text="{Binding Title}"
                     TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"></Label>
+                <buttons:SfButton ImageSource="user.png" ShowIcon="True" Clicked="ChartsButton_Click"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    ImageWidth="40"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Grid.RowSpan="2">
+                </buttons:SfButton>
                 <Label
                     Grid.Column="0"
                     Grid.Row="1"
@@ -30,7 +40,9 @@
             <Label
                 Text="Markets      web         Num"
                 Style="{StaticResource Body1FontSize_ExoBold}"
-                Margin="20, 0, 20, 0"></Label>
+                Margin="20, 0, 20, 0">
+
+            </Label>
 
             <StackLayout>
                 <Label x:Name="header" Text="Type crypt" FontSize="Large" />
@@ -47,19 +59,24 @@
             <StackLayout>
 
                 <ListView ItemsSource="{Binding Market}" HasUnevenRows="True">
+                    
                     <ListView.ItemTemplate>
+                        
                         <DataTemplate>
+                            
                             <ViewCell>
-
+                                
                                 <Grid>
+                                    
                                     <Label
                                     Grid.Row="0"
                                     Grid.Column="3"
                                         VerticalOptions="Center"
                                     Text="{Binding priceUsd}"
                                     Style="{StaticResource Body1FontSize_ExoRegular}"
-                                    
-                                    ></Label>
+                                    >
+                                        
+                                    </Label>
 
                                     <Label
                                     Grid.Row="0"
@@ -82,7 +99,14 @@
                                     TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}">
                                     </Label>
 
+                                    <Button Grid.Row="0" Grid.Column="4" Text="-->" Clicked="OnButtonClicked"  CommandParameter="{Binding exchangeId}"/>
+
+                                    
+
+
+
                                 </Grid>
+
 
                             </ViewCell>
                         </DataTemplate>

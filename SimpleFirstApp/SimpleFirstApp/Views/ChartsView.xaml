@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             x:Class="SimpleFirstApp.Views.ChartsView"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             >
+
+    <Grid>
+        <buttons:SfButton ImageSource="free_icon.png" ShowIcon="True" Clicked="ProfileButton_Click"
+                    TextColor="Black"
+                    HorizontalOptions="Center"
+                    ImageWidth="40"
+                    BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
+        </buttons:SfButton>
+
+        <chart:SfChart>
+
+            <chart:SfChart.PrimaryAxis>
+
+                <chart:CategoryAxis>
+
+                    <chart:CategoryAxis.Title>
+
+
+                        <chart:ChartAxisTitle Text="Date"></chart:ChartAxisTitle>
+
+                    </chart:CategoryAxis.Title>
+
+                </chart:CategoryAxis>
+
+            </chart:SfChart.PrimaryAxis>
+
+            <chart:SfChart.SecondaryAxis>
+
+                <chart:NumericalAxis>
+
+                    <chart:NumericalAxis.Title>
+
+                        <chart:ChartAxisTitle Text="Price"></chart:ChartAxisTitle>
+
+                    </chart:NumericalAxis.Title>
+
+                </chart:NumericalAxis>
+
+            </chart:SfChart.SecondaryAxis>
+
+            <chart:SfChart.Series>
+
+
+                <chart:SplineSeries ItemsSource ="{Binding Charts}" XBindingPath="date"
+	  					YBindingPath="priceUsd"/>
+
+
+            </chart:SfChart.Series>
+
+        </chart:SfChart>
+    </Grid>
+        
+
+    
+</ContentPage>

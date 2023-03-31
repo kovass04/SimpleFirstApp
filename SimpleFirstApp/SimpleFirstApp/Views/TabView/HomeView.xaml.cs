@@ -31,5 +31,10 @@ namespace SimpleFirstApp.Views.TabView
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
+        private async void OnButtonClicked(object sender, EventArgs e)
+        {
+            string assetId = (string)((Button)sender).CommandParameter;
+            await Navigation.PushAsync(new ChartsView(assetId));
+        }
     }
 }

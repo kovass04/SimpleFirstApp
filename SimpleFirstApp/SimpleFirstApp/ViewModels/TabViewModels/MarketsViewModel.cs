@@ -1,10 +1,13 @@
 ﻿using SimpleFirstApp.Models;
 using SimpleFirstApp.Services;
+using SimpleFirstApp.Views.TabView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SimpleFirstApp.ViewModels.TabViewModels
 {
@@ -12,7 +15,6 @@ namespace SimpleFirstApp.ViewModels.TabViewModels
     {
         private readonly DataServices _Services;
         private List<AssetsMarkets> _marks;
-
         public List<AssetsMarkets> Market
         {
             get => _marks;

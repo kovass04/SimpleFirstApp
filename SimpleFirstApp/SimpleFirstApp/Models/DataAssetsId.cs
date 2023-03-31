@@ -4,14 +4,13 @@ using System.Text;
 
 namespace SimpleFirstApp.Models
 {
-    public class DataAssets
+    public class DataAssetsId
     {
-        public Assets[] data { get; set; }
+        public Data data { get; set; }
         public long timestamp { get; set; }
-
     }
 
-    public class Assets
+    public class Data
     {
         public string id { get; set; }
         public string rank { get; set; }
@@ -26,5 +25,4 @@ namespace SimpleFirstApp.Models
         public string vwap24Hr { get; set; }
         public string explorer { get; set; }
     }
-
 }
