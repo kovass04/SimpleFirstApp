@@ -32,9 +32,9 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Rank" Grid.Column="0" />
-                <Label Text="Name" Grid.Column="1" />
-                <Label Text="Url" Grid.Column="2" />
+                <Label Text="Rank" Grid.Column="0" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                <Label Text="Name" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                <Label Text="Url" Grid.Column="2" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
 
                 <!-- ListView control -->
                 <ListView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Exchange}">
@@ -47,9 +47,9 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding rank}" Grid.Column="0" />
-                                    <Label Text="{Binding name}" Grid.Column="1" />
-                                    <Label Text="{Binding exchangeUrl}" Grid.Column="2" />
+                                    <Label Text="{Binding rank}" Grid.Column="0" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                                    <Label Text="{Binding name}" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                                    <Label Text="{Binding exchangeUrl}" Grid.Column="2" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

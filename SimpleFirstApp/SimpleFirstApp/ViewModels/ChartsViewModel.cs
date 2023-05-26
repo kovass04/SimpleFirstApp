@@ -1,41 +1,36 @@
 ﻿using SimpleFirstApp.Models;
 using SimpleFirstApp.Services;
+using Syncfusion.XForms.Buttons;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms;
+
 
 namespace SimpleFirstApp.ViewModels
 {
     public class ChartsViewModel : BaseViewModel
     {
-        private readonly DataServices _Services;
-        private List<Charts> _charts;
-        public List<Charts> Charts
+        private ObservableCollection<SfSegmentItem> imageTextCollection;
+        public ObservableCollection<SfSegmentItem> ImageTextCollection
         {
-            get => _charts;
-            set
-            {
-                SetProperty(ref _charts, value);
-            }
+            get { return imageTextCollection; }
+            set { imageTextCollection = value; }
         }
-        public ChartsViewModel(string i)
+        public ChartsViewModel()
         {
-            string a = "bitcoin";
             Title = "Markets Page";
-            _Services = new DataServices();
-            LoadChartsAsync(i);
-
-        }
-        private async Task LoadChartsAsync(string i)
+            imageTextCollection = new ObservableCollection<SfSegmentItem>
         {
-            var charts = await _Services.GetChartsAsync(i);
-            Charts = new List<Charts>(charts.data);
+            new SfSegmentItem(){IconFont = "1", FontIconFontColor=Color.FromHex("#FFFFFF"), FontColor=Color.FromHex("#FFFFFF"), Text = "Day"},
+            new SfSegmentItem(){IconFont = "1", FontIconFontColor=Color.FromHex("#FFFFFF"), FontColor=Color.FromHex("#FFFFFF"), Text = "Mounth"},
+            new SfSegmentItem(){IconFont = "1", FontIconFontColor=Color.FromHex("#FFFFFF"), FontColor=Color.FromHex("#FFFFFF"), Text = "Year"} };
         }
-
-        public void OnAppearing()
+        public ChartsViewModel(string i, string b) : this()
         {
-            IsBusy = true;
+            _ = LoadChartsAsync(i,b);
         }
     }
 }

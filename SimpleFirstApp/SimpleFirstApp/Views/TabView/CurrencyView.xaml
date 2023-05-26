@@ -4,8 +4,8 @@
              x:Class="SimpleFirstApp.Views.TabView.CurrencyView">
 
 
-    <StackLayout>
-        <Label x:Name="header" Text="Type crypt" FontSize="Large" />
+    <StackLayout BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
+        <Label x:Name="header" Text="Type crypt" FontSize="Large" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
 
         <Grid>
             <Grid.RowDefinitions>
@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Picker Grid.Row="0" Grid.Column="0" x:Name="picker1"  SelectedIndexChanged="picker_SelectedIndexChanged">
+            <Picker Grid.Row="0" Grid.Column="0" x:Name="picker1"  SelectedIndexChanged="picker_SelectedIndexChanged" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}">
                 <Picker.Items>
                     <x:String>USD</x:String>
                     <x:String>EUR</x:String>
@@ -25,7 +25,7 @@
                     <x:String>bitcoin</x:String>
                 </Picker.Items>
             </Picker>
-            <Picker Grid.Row="0" Grid.Column="1" x:Name="picker2"  SelectedIndexChanged="picker_SelectedIndexChanged">
+            <Picker Grid.Row="0" Grid.Column="1" x:Name="picker2"  SelectedIndexChanged="picker_SelectedIndexChanged" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}">
                 <Picker.Items>
                     <x:String>USD</x:String>
                     <x:String>EUR</x:String>
@@ -33,11 +33,11 @@
                     <x:String>bitcoin</x:String>
                 </Picker.Items>
             </Picker>
-            <Entry Grid.Row="1" Grid.Column="0" x:Name="numberEntry" Keyboard="Numeric" />
-            <Entry Grid.Row="1" Grid.Column="1" x:Name="numberWrite" Keyboard="Numeric" IsReadOnly="true" />
+            <Entry Grid.Row="1" Grid.Column="0" x:Name="numberEntry" Keyboard="Numeric" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+            <Entry Grid.Row="1" Grid.Column="1" x:Name="numberWrite" Keyboard="Numeric" IsReadOnly="true" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
             
         </Grid>
-        <Button Text="Convert" Clicked="OnConvertClicked" />
+        <Button Text="Convert" Clicked="OnConvertClicked" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
         
     </StackLayout>
     

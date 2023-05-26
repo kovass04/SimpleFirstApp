@@ -34,6 +34,17 @@ namespace SimpleFirstApp.Views.TabView
             header.Text = "You choise: " + picker.Items[picker.SelectedIndex];
             BindingContext = _viewModel = new MarketsViewModel(picker.Items[picker.SelectedIndex]);
         }
+        void picker_SelectedIndexChanged2(object sender, EventArgs e)
+        {
+            bool a;
+            if (picker2.Items[picker2.SelectedIndex] == "Low") { a = false; }
+            else { a = true; }
+            //need to fix because I have -1 and not null
+            if (picker.Items[picker.SelectedIndex] != null) 
+            {
+                BindingContext = _viewModel = new MarketsViewModel(picker.Items[picker.SelectedIndex], a);
+            }
+        }
 
         private async void OnButtonClicked(object sender, EventArgs e)
         {
@@ -41,9 +52,5 @@ namespace SimpleFirstApp.Views.TabView
             await Navigation.PushAsync(new MarketIdView(marketId));
         }
 
-        private async void ChartsButton_Click(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new ChartsView());
-        }
     }
 }

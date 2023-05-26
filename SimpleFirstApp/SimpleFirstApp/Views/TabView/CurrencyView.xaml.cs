@@ -43,7 +43,7 @@ namespace SimpleFirstApp.Views.TabView
                 BindingContext = _viewModel = new CurrencyViewModel(picker1.Items[0], picker2.Items[0]);
             }
         }
-        private void OnConvertClicked(object sender, EventArgs e)
+        private void OnConvertClicked(object sender, EventArgs e) //changer
         {
             if (int.TryParse(numberEntry.Text, out int value))
             {

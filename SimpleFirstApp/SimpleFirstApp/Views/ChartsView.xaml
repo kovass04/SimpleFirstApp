@@ -5,14 +5,21 @@
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              >
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
+        <buttons:SfSegmentedControl 
+        
+    x:Name="segmentedControl" 
+    DisplayMode="ImageWithText"
+    SelectedIndex="1"
+    ItemsSource = "{Binding ImageTextCollection}"
+    VisibleSegmentsCount="3"
+    SelectionTextColor="#FFFFFF"
+            SelectionChanged="Handle_SelectionChanged">
+        </buttons:SfSegmentedControl>
+        
 
-    <Grid>
-        <buttons:SfButton ImageSource="free_icon.png" ShowIcon="True" Clicked="ProfileButton_Click"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    ImageWidth="40"
-                    BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
-        </buttons:SfButton>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        
 
         <chart:SfChart>
 
@@ -23,7 +30,7 @@
                     <chart:CategoryAxis.Title>
 
 
-                        <chart:ChartAxisTitle Text="Date"></chart:ChartAxisTitle>
+                            <chart:ChartAxisTitle Text="Date" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"></chart:ChartAxisTitle>
 
                     </chart:CategoryAxis.Title>
 
@@ -37,7 +44,7 @@
 
                     <chart:NumericalAxis.Title>
 
-                        <chart:ChartAxisTitle Text="Price"></chart:ChartAxisTitle>
+                            <chart:ChartAxisTitle Text="Price" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"></chart:ChartAxisTitle>
 
                     </chart:NumericalAxis.Title>
 
@@ -49,14 +56,14 @@
 
 
                 <chart:SplineSeries ItemsSource ="{Binding Charts}" XBindingPath="date"
-	  					YBindingPath="priceUsd"/>
+	  					YBindingPath="priceUsd" />
 
 
             </chart:SfChart.Series>
 
         </chart:SfChart>
     </Grid>
-        
+    </StackLayout>
 
-    
+
 </ContentPage>

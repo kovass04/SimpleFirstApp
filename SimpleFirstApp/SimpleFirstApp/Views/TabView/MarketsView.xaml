@@ -19,15 +19,7 @@
                     Style="{StaticResource Body1FontSize_ExoRegular}"
                     Text="{Binding Title}"
                     TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"></Label>
-                <buttons:SfButton ImageSource="user.png" ShowIcon="True" Clicked="ChartsButton_Click"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    ImageWidth="40"
-                    BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
-                    Grid.Column="1"
-                    Grid.Row="0"
-                    Grid.RowSpan="2">
-                </buttons:SfButton>
+
                 <Label
                     Grid.Column="0"
                     Grid.Row="1"
@@ -45,17 +37,26 @@
             </Label>
 
             <StackLayout>
-                <Label x:Name="header" Text="Type crypt" FontSize="Large" />
-                <Picker x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged">
+                <Label x:Name="header" Text="Type crypt" FontSize="Large" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                <Picker x:Name="picker" SelectedIndexChanged="picker_SelectedIndexChanged" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}">
                     <Picker.Items>
                         <x:String>bitcoin</x:String>
                         <x:String>ethereum</x:String>
-                        <x:String>ripple</x:String>
                         <x:String>bitcoin-cash</x:String>
                     </Picker.Items>
                 </Picker>
             </StackLayout>
-            
+
+            <StackLayout>
+                <Label Text="Order by" FontSize="Large" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                <Picker x:Name="picker2" SelectedIndexChanged="picker_SelectedIndexChanged2" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}">
+                    <Picker.Items>
+                        <x:String>Low</x:String>
+                        <x:String>High</x:String>
+                    </Picker.Items>
+                </Picker>
+            </StackLayout>
+
             <StackLayout>
 
                 <ListView ItemsSource="{Binding Market}" HasUnevenRows="True">

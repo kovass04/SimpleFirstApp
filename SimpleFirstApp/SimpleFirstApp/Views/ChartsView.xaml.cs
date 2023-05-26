@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace SimpleFirstApp.Views
@@ -16,20 +17,36 @@ namespace SimpleFirstApp.Views
     public partial class ChartsView : ContentPage
     {
         ChartsViewModel _viewModel;
+        static string n;
         public ChartsView(string i)
         {
             InitializeComponent();
+            n = i;
+            BindingContext = _viewModel = new ChartsViewModel(i, "1d");
             
-            BindingContext = _viewModel = new ChartsViewModel(i);
         }
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
-        private async void ProfileButton_Click(object sender, EventArgs e)
+
+        void Handle_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            await Navigation.PushAsync(new HomeView());
+            if (segmentedControl.SelectedIndex == 0)
+            {
+                BindingContext = _viewModel = new ChartsViewModel(n, "m1");
+            }
+            else if (segmentedControl.SelectedIndex == 1)
+            {
+                BindingContext = _viewModel = new ChartsViewModel(n, "h1");
+            }
+            else
+            {
+                BindingContext = _viewModel = new ChartsViewModel(n, "d1");
+            }
         }
+
+
     }
 }

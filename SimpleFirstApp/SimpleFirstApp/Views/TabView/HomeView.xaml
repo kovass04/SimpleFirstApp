@@ -2,10 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             
              x:Class="SimpleFirstApp.Views.TabView.HomeView"
              NavigationPage.HasNavigationBar="False">
-
     <ScrollView>
         <StackLayout
             BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}">
@@ -19,15 +17,10 @@
                     Grid.Row="0"
                     Style="{StaticResource Body1FontSize_ExoBold}"
                     Text="{Binding Title}"
-                    
                     TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"></Label>
-
-
-
-                <buttons:SfButton ImageSource="user.png" ShowIcon="True" Clicked="ProfileButton_Click"
-                    TextColor="Black"
-                    HorizontalOptions="Center"
-                    ImageWidth="40"
+                <buttons:SfButton Text="I" Clicked="ProfileButton_Click" CornerRadius="20" WidthRequest="40" BorderWidth="2"
+                    TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"
+                    BorderColor="{AppThemeBinding Light={StaticResource DarkPageBackgroundColor}, Dark={StaticResource LightPageBackgroundColor}}"
                     BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"
                     Grid.Column="1"
                     Grid.Row="0"
@@ -35,12 +28,6 @@
                 </buttons:SfButton>
 
             </Grid>
-
-            
-            <Label
-                Text="Crypto"
-                Style="{StaticResource Body1FontSize_ExoBold}"
-                Margin="20, 0, 20, 0"></Label>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -53,9 +40,9 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Label Text="Name" Grid.Column="0" />
-                <Label Text="Price" Grid.Column="1" />
-                <Label Text="Choice" Grid.Column="2" />
+                <Label Text="Name" Grid.Column="0" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                <Label Text="Price" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                <Label Text="Choice" Grid.Column="2" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
 
                 <!-- ListView control -->
                 <ListView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Asset}">
@@ -68,9 +55,9 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding symbol}" Grid.Column="0" />
-                                    <Label Text="{Binding priceUsd}" Grid.Column="1" />
-                                    <Button Grid.Column="2" Text="-->" Clicked="OnButtonClicked"  CommandParameter="{Binding id}"/>
+                                    <Label Text="{Binding symbol}" Grid.Column="0" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                                    <Label Text="{Binding priceUsd}" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
+                                    <Button Grid.Column="2" Text="-->" Clicked="OnButtonClicked" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"  CommandParameter="{Binding id}" BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>

@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using SimpleFirstApp.Models;
 
@@ -61,10 +59,9 @@ namespace SimpleFirstApp.Services
             var content = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<DataAssetsMarkets>(content);
         }
-        //assets/bitcoin/history?interval=d1
-        public async Task<DataCharts> GetChartsAsync(string assetId)
+        public async Task<DataCharts> GetChartsAsync(string assetId, string date)
         {
-            var response = await _httpClient.GetAsync($"assets/{assetId}/history?interval=d1");
+            var response = await _httpClient.GetAsync($"assets/{assetId}/history?interval={date}");
             response.EnsureSuccessStatusCode();
 
             var content = await response.Content.ReadAsStringAsync();
