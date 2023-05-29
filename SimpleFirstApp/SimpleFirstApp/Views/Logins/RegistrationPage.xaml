@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleFirstApp.Views.Logins.RegistrationPage">
+    <ContentPage.Content>
+        <StackLayout Margin="25">
+            <Label Text="Registration" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10"/>
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <Label Text="Firstname" FontSize="Default" FontAttributes="Bold"/>
+                <Entry x:Name="entryFirstName" Text="{Binding FirstName}"/>
+
+                <Label Text="Lastname" FontSize="Default" FontAttributes="Bold"/>
+                <Entry x:Name="entryLastName" Text="{Binding LastName}"/>
+
+                <Label Text="Email" FontSize="Default" FontAttributes="Bold"/>
+                <Entry x:Name="entryEmail" Text="{Binding Email}"/>
+
+                <Label Text="Username" FontSize="Default" FontAttributes="Bold"/>
+                <Entry x:Name="entryUserName" Text="{Binding UserName}"/>
+
+                <Label Text="Password" FontSize="Default" FontAttributes="Bold"/>
+                <Entry x:Name="entryPassword" Text="{Binding Password}"/>
+
+                <Button x:Name="btnRegister" Text="Register" Clicked="btnRegister_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

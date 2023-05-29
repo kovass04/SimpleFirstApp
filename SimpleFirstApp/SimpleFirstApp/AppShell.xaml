@@ -23,6 +23,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+
     <TabBar Route="main">
         <Tab Title="Home" Route="home" Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate tabViews:HomeView}" />

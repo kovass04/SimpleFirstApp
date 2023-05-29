@@ -45,7 +45,7 @@
                 <Label Text="Choice" Grid.Column="2" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
 
                 <!-- ListView control -->
-                <ListView Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Asset}">
+                <ListView x:Name="myListView" Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Asset}" ItemSelected="OnItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -57,14 +57,14 @@
                                     </Grid.ColumnDefinitions>
                                     <Label Text="{Binding symbol}" Grid.Column="0" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
                                     <Label Text="{Binding priceUsd}" Grid.Column="1" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"/>
-                                    <Button Grid.Column="2" Text="-->" Clicked="OnButtonClicked" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"  CommandParameter="{Binding id}" BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"/>
+                                    <Button Grid.Column="2" Text="Add to" Clicked="OnButtonClicked" TextColor="{AppThemeBinding Light={StaticResource LightPrimaryTextColor}, Dark={StaticResource DarkPrimaryTextColor}}"  BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"/>
                                 </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            
+
         </StackLayout>
     </ScrollView>
 </ContentPage>

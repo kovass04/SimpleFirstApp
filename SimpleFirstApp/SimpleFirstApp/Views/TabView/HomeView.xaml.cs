@@ -1,11 +1,8 @@
-﻿using SimpleFirstApp.ViewModels.TabViewModels;
-using Syncfusion.XForms.Buttons;
+﻿using SimpleFirstApp.Models;
+using SimpleFirstApp.ViewModels.TabViewModels;
+using SimpleFirstApp.Views.Logins;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,13 +15,11 @@ namespace SimpleFirstApp.Views.TabView
         public HomeView()
         {
             InitializeComponent();
-
             BindingContext = _viewModel = new HomeViewModel();
-
         }
         private async void ProfileButton_Click(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProfileView());
+            await Navigation.PushAsync(new LoginPage1());
         }
 
         protected override void OnAppearing()
@@ -34,8 +29,27 @@ namespace SimpleFirstApp.Views.TabView
         }
         private async void OnButtonClicked(object sender, EventArgs e)
         {
-            string assetId = (string)((Button)sender).CommandParameter;
-            await Navigation.PushAsync(new ChartsView(assetId));
+            var getuserSavedkey = Xamarin.Essentials.Preferences.Get("UserAlreadyloggedIn", false);
+
+            if (getuserSavedkey)
+            {
+                //add.Text = "Add to favorite";
+            }
+            else
+            {
+                
+                await Navigation.PushAsync(new LoginPage1());
+            }
+            
+        }
+
+        private List<Assets> _assets;
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Assets selectedAssetData = (Assets)e.SelectedItem;
+
+            await Navigation.PushAsync(new ChartsView(selectedAssetData.id));
+ 
         }
     }
 }
