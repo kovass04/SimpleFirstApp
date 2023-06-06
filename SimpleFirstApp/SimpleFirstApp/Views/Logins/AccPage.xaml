@@ -18,6 +18,24 @@
                 </ListView.ItemTemplate>
             </ListView>
             <Button Text="Добавить" Clicked="CreateFriend" />
+            
+            <ListView x:Name="list" ItemsSource="{Binding}" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding Id}" FontSize="Medium" />
+                                    <Label Text="{Binding SomeData}" FontSize="Medium" />
+                                    <Label Text="{Binding UserId}" FontSize="Medium" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Добавить" Clicked="create" />
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

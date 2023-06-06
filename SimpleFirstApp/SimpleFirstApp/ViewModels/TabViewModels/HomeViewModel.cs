@@ -10,7 +10,6 @@ namespace SimpleFirstApp.ViewModels.TabViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-        
         public HomeViewModel()
         {
             Title = "Homepage";

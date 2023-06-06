@@ -19,8 +19,26 @@ namespace SimpleFirstApp.Views.Logins
         public async Task CreateTable()
         {
             await database.CreateTableAsync<Account>();
+            await database.CreateTableAsync<RelatedObject>();
         }
-        public async Task<List<Account>> GetItemsAsync()
+        public async Task<List<RelatedObject>> GetItemsAsync() // неправильна функція
+        {
+            return await database.Table<RelatedObject>().ToListAsync();
+        }
+        public async Task<int> SaveRelatedObjectItemAsync(RelatedObject item)
+        {
+            if (item.Id != 0)
+            {
+                await database.UpdateAsync(item);
+                return item.Id;
+            }
+            else
+            {
+                return await database.InsertAsync(item);
+            }
+        }
+        // end
+        public async Task<List<Account>> GetAccountItemsAsync()
         {
             return await database.Table<Account>().ToListAsync();
         }

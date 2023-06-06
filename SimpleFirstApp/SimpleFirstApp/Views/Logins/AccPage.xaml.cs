@@ -20,10 +20,27 @@ namespace SimpleFirstApp.Views.Logins
         protected override async void OnAppearing()
         {
             await App.Database.CreateTable();
-            // привязка данных
-            friendsList.ItemsSource = await App.Database.GetItemsAsync();
-
+            // привязка даних
+            friendsList.ItemsSource = await App.Database.GetAccountItemsAsync();
+            list.ItemsSource = await App.Database.GetItemsAsync();
             base.OnAppearing();
+        }
+        private async void create(object sender, EventArgs e)
+        {
+            var getuserSavedkey = Xamarin.Essentials.Preferences.Get("UserAlreadyloggedIn", false);
+
+            if (getuserSavedkey)
+            {
+                RelatedObject relatedobject = new RelatedObject();
+                FavoritePage accountPage = new FavoritePage();
+                accountPage.BindingContext = relatedobject;
+                await Navigation.PushAsync(accountPage);
+            }
+            else
+            {
+                await Navigation.PushAsync(new LoginPage1());
+            }
+
         }
         private async void CreateFriend(object sender, EventArgs e)
         {

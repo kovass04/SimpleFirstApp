@@ -42,7 +42,7 @@ namespace SimpleFirstApp.ViewModels.Login
 
             var data = MyloginRequestModel;
             await App.Database.CreateTable();
-            var data2 = await App.Database.GetItemsAsync();
+            var data2 = await App.Database.GetAccountItemsAsync();
 
             foreach (var item in data2)
             {
@@ -51,6 +51,7 @@ namespace SimpleFirstApp.ViewModels.Login
 
                     Preferences.Set("UserAlreadyloggedIn", true);
 
+                    Preferences.Set("UserLogin", item.UserName);
 
                     await Application.Current.MainPage.Navigation.PushAsync(new DashboardPage());
                 }

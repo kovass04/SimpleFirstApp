@@ -33,7 +33,7 @@ namespace SimpleFirstApp.Views.TabView
 
             if (getuserSavedkey)
             {
-                //add.Text = "Add to favorite";
+                //
             }
             else
             {

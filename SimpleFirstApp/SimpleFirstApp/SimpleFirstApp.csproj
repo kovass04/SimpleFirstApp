@@ -10,18 +10,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="accounts13.db" />
     <None Remove="Views\Logins\accounts1.db" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="accounts13.db" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Plugin.RestClient" Version="1.1.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="SQLiteNetExtensions" Version="2.1.0" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="20.4.0.54" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="21.2.6" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="21.1.37" />
@@ -48,6 +44,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Logins\DashboardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Logins\FavoritePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Logins\LoginPage1.xaml">
