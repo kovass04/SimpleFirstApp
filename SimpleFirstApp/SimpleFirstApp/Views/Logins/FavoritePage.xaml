@@ -4,13 +4,23 @@
              x:Class="SimpleFirstApp.Views.Logins.FavoritePage">
     <ContentPage.Content>
         <StackLayout Margin="25">
-            <Label Text="Registration" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10"/>
-            <StackLayout VerticalOptions="CenterAndExpand">
-                <Label Text="Firstname" FontSize="Default" FontAttributes="Bold"/>
-                <Entry x:Name="entryFirstName" Text="{Binding SomeData}"/>
+            <Label Text="Favorite" FontSize="Large" FontAttributes="Bold" Margin="0,0,0,10"/>
 
-                <Button x:Name="btnRegister" Text="Register" Clicked="btnRegister_Clicked"/>
-            </StackLayout>
+            <ListView x:Name="list" ItemsSource="{Binding}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding SomeData}" FontSize="Medium" />
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Logout" BackgroundColor="Black" TextColor="White" Command="{Binding LogoutCommand}"></Button>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

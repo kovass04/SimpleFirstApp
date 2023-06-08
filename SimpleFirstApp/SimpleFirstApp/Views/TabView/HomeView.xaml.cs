@@ -19,7 +19,7 @@ namespace SimpleFirstApp.Views.TabView
         }
         private async void ProfileButton_Click(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LoginPage1());
+            await Navigation.PushAsync(new ProfileView());
         }
 
         protected override void OnAppearing()
@@ -33,7 +33,7 @@ namespace SimpleFirstApp.Views.TabView
 
             if (getuserSavedkey)
             {
-                //
+
             }
             else
             {
@@ -43,7 +43,7 @@ namespace SimpleFirstApp.Views.TabView
             
         }
 
-        private List<Assets> _assets;
+        private List<Assets> _assets; //fix
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Assets selectedAssetData = (Assets)e.SelectedItem;

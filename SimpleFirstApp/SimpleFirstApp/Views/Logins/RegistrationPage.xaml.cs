@@ -28,10 +28,6 @@ namespace SimpleFirstApp.Views.Logins
                 await App.Database.SaveItemAsync(account);
             }
             await this.Navigation.PopAsync();
-
-            /*Application.Current.Properties["Firstname"] = entryFirstName.Text;
-            Application.Current.Properties["Username"] = entryUserName.Text;
-            Application.Current.Properties["Password"] = entryPassword.Text;*/
             DisplayAlert("", "registration Successful!", "OK");
         }
     }

@@ -1,10 +1,6 @@
 ﻿using SimpleFirstApp.Models;
 using SimpleFirstApp.Views.Logins;
-using SQLite;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -25,14 +21,10 @@ namespace SimpleFirstApp.ViewModels.Login
             }
         }
 
-
         public ICommand LoginCommand { get; }
-
-
 
         public LoginViewModel()
         {
-
             LoginCommand = new Command(PerformLoginOperation);
         }
 
@@ -48,17 +40,13 @@ namespace SimpleFirstApp.ViewModels.Login
             {
                 if (data.UserName == item.UserName && data.Password == item.Password)
                 {
-
                     Preferences.Set("UserAlreadyloggedIn", true);
 
                     Preferences.Set("UserLogin", item.UserName);
 
-                    await Application.Current.MainPage.Navigation.PushAsync(new DashboardPage());
+                    await Application.Current.MainPage.Navigation.PushAsync(new FavoritePage());
                 }
             }
-            
-
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -67,6 +55,5 @@ namespace SimpleFirstApp.ViewModels.Login
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }

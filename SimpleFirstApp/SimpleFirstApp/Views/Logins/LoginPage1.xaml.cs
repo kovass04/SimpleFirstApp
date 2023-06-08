@@ -1,4 +1,6 @@
-﻿using SimpleFirstApp.ViewModels.Login;
+﻿using SimpleFirstApp.Models;
+using SimpleFirstApp.ViewModels.Login;
+using SimpleFirstApp.Views.TabView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +20,22 @@ namespace SimpleFirstApp.Views.Logins
             InitializeComponent();
             BindingContext = new LoginViewModel();
         }
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        protected override async void OnAppearing()
         {
-            Navigation.PushAsync(new RegistrationPage());
+            await App.Database.CreateTable();
+            base.OnAppearing();
         }
-        private void btnAll_Clicked(object sender, EventArgs e)
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AccPage());
+            Account account = new Account();
+            RegistrationPage accountPage = new RegistrationPage();
+            accountPage.BindingContext = account;
+            await Navigation.PushAsync(accountPage);
+        }
+
+        private void btnSkip_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new HomeView());
         }
     }
 }

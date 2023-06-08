@@ -3,6 +3,9 @@ using System;
 using Xamarin.Forms;
 using System.IO;
 using System.Reflection;
+using Xamarin.Essentials;
+using SimpleFirstApp.ViewModels;
+using SimpleFirstApp.ViewModels.Login;
 
 namespace SimpleFirstApp
 {
@@ -26,13 +29,13 @@ namespace SimpleFirstApp
         public App()
         {
             InitializeComponent();
-
-
+            SetAppTheme();
             MainPage = new AppShell();
         }
 
         protected override void OnStart()
         {
+            WelcomePageViewModel WelcomePage = new WelcomePageViewModel();
         }
 
         protected override void OnSleep()
@@ -41,6 +44,18 @@ namespace SimpleFirstApp
 
         protected override void OnResume()
         {
+        }
+        private void SetAppTheme()
+        {
+            var theme = Preferences.Get("theme", string.Empty);
+            if (string.IsNullOrEmpty(theme) || theme == "light")
+            {
+                Application.Current.UserAppTheme = OSAppTheme.Light;
+            }
+            else
+            {
+                Application.Current.UserAppTheme = OSAppTheme.Dark;
+            }
         }
     }
 }

@@ -8,16 +8,14 @@ using Xamarin.Forms;
 
 namespace SimpleFirstApp.ViewModels.Login
 {
-    public class DashboardPageViewModel
+    internal class FavoritePageViewModel
     {
-
         public ICommand LogoutCommand { get; }
 
 
-        public DashboardPageViewModel()
+        public FavoritePageViewModel()
         {
             LogoutCommand = new Command(PerformLogoutOperation);
-
         }
 
         private async void PerformLogoutOperation(object obj)

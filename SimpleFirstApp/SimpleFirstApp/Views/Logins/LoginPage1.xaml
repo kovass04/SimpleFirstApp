@@ -32,7 +32,7 @@
                     <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                 </Label.GestureRecognizers>
             </Label>
-            <Button Text="view all" Clicked="btnAll_Clicked"/>
+            <Button Text="Skip-->" Clicked="btnSkip_Clicked"/>
         </StackLayout>
         
     </ContentPage.Content>

@@ -1,12 +1,10 @@
 ﻿using SimpleFirstApp.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Xamarin.Essentials;
+using System.Linq;
+using SimpleFirstApp.ViewModels.Login;
 
 namespace SimpleFirstApp.Views.Logins
 {
@@ -16,17 +14,16 @@ namespace SimpleFirstApp.Views.Logins
         public FavoritePage()
         {
             InitializeComponent();
+            BindingContext = new FavoritePageViewModel();
         }
-        private async void btnRegister_Clicked(object sender, EventArgs e)
+
+        protected override async void OnAppearing()
         {
-            var account = (RelatedObject)BindingContext;
-            if (!String.IsNullOrEmpty(account.SomeData))
-            {
-                account.UserId = Xamarin.Essentials.Preferences.Get("UserLogin", "user"); ;
-                await App.Database.SaveRelatedObjectItemAsync(account);
-            }
-            await this.Navigation.PopAsync();
-            DisplayAlert("", "registration Successful!", "OK");
+            await App.Database.CreateTable();
+            var items = await App.Database.GetItemsAsync();
+            list.ItemsSource = items.Where(item => item.UserId == Xamarin.Essentials.Preferences.Get("UserLogin", "user"))
+                                    .OrderBy(item => item.UserId);
+            base.OnAppearing();
         }
     }
 }
