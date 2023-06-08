@@ -33,7 +33,10 @@ namespace SimpleFirstApp.Views.TabView
 
             if (getuserSavedkey)
             {
-
+                Account account = new Account();
+                RegistrationPage accountPage = new RegistrationPage();
+                accountPage.BindingContext = account;
+                await Navigation.PushAsync(accountPage);
             }
             else
             {
