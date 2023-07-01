@@ -1,8 +1,5 @@
-﻿using SimpleFirstApp.Models;
-using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
 using System.Linq;
 using SimpleFirstApp.ViewModels.Login;
 
@@ -16,7 +13,6 @@ namespace SimpleFirstApp.Views.Logins
             InitializeComponent();
             BindingContext = new FavoritePageViewModel();
         }
-
         protected override async void OnAppearing()
         {
             await App.Database.CreateTable();

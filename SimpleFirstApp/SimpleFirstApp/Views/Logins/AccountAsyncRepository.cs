@@ -9,7 +9,7 @@ namespace SimpleFirstApp.Views.Logins
 {
     public class AccountAsyncRepository
     {
-        SQLiteAsyncConnection database;
+        readonly SQLiteAsyncConnection database;
 
         public AccountAsyncRepository(string databasePath)
         {
@@ -21,7 +21,7 @@ namespace SimpleFirstApp.Views.Logins
             await database.CreateTableAsync<Account>();
             await database.CreateTableAsync<RelatedObject>();
         }
-        public async Task<List<RelatedObject>> GetItemsAsync() // неправильна функція
+        public async Task<List<RelatedObject>> GetItemsAsync()
         {
             return await database.Table<RelatedObject>().ToListAsync();
         }
@@ -37,7 +37,6 @@ namespace SimpleFirstApp.Views.Logins
                 return await database.InsertAsync(item);
             }
         }
-        // end
         public async Task<List<Account>> GetAccountItemsAsync()
         {
             return await database.Table<Account>().ToListAsync();

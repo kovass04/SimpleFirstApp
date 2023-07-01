@@ -6,7 +6,6 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace SimpleFirstApp.ViewModels
 {
@@ -55,7 +54,6 @@ namespace SimpleFirstApp.ViewModels
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         #endregion
-        public string firstItem;//fix
         private readonly DataServices _Services;
         private List<Assets> _assets;
         private List<Exchanges> _exchanges;
@@ -98,11 +96,6 @@ namespace SimpleFirstApp.ViewModels
             var assets = await _Services.GetAssetsAsync();
             Asset = new List<Assets>(assets.data);
         }
-        protected async Task LoadAssetsAsync(string id)
-        {
-            var assets = await _Services.GetAssetsIdAsync(id);
-            firstItem = assets.data.priceUsd;
-        }
         protected async Task LoadExchangesAsync()
         {
             var exchanges = await _Services.GetExchangesAsync();
@@ -110,12 +103,14 @@ namespace SimpleFirstApp.ViewModels
 
         }
         //Market start f()
+        //TODO documentation and rename variables
         protected async Task LoadMarketsAsync(string id)
         {
             var markets = await _Services.GetMarketsIdAsync(id);
             Market = new List<AssetsMarkets>(markets.data);
         }
         //Market sort f()
+        //TODO documentation and rename variables
         protected async Task LoadMarketsAsync(string id, bool sortDescending)
         {
             var markets = await _Services.GetMarketsIdAsync(id);
@@ -129,7 +124,8 @@ namespace SimpleFirstApp.ViewModels
                 Market = markets.data.OrderBy(m => m.priceUsd).ToList();
             }
         }
-        //Market end f()
+
+        //TODO documentation and rename variables
         protected async Task LoadChartsAsync(string i, string b)
         {
             var charts = await _Services.GetChartsAsync(i, b);

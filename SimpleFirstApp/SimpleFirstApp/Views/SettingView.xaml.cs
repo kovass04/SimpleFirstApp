@@ -5,12 +5,12 @@ using Xamarin.Forms.Xaml;
 namespace SimpleFirstApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MarketIdView : ContentPage
+    public partial class SettingView : ContentPage
     {
-        public MarketIdView(string marketsId)
+        public SettingView()
         {
             InitializeComponent();
-            BindingContext = new MarketIdViewModel(marketsId);
+            BindingContext = new SettingViewModel();
         }
     }
 }

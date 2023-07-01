@@ -1,19 +1,18 @@
-﻿using SimpleFirstApp.Models;
-using SimpleFirstApp.Services;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using Syncfusion.XForms.Buttons;
+﻿using System.Threading.Tasks;
 
 namespace SimpleFirstApp.ViewModels.TabViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
+        public Task Init { get; }
         public HomeViewModel()
         {
             Title = "Homepage";
-            _ = LoadAssetsAsync();
+            Init = Initialize();
+        }
+        private async Task Initialize()
+        {
+            await LoadAssetsAsync();
         }
     }
 }

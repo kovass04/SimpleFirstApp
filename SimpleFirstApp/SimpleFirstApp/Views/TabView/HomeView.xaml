@@ -18,7 +18,7 @@
                     Style="{StaticResource Body1FontSize_ExoBold}"
                     Text="{Binding Title}"
                     TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"></Label>
-                <buttons:SfButton Text="I" Clicked="ProfileButton_Click" CornerRadius="20" WidthRequest="40" BorderWidth="2"
+                <buttons:SfButton Text="I" Clicked="SettingButton_Click" CornerRadius="20" WidthRequest="40" BorderWidth="2"
                     TextColor="{AppThemeBinding Light={StaticResource LightSecondaryTextColor}, Dark={StaticResource DarkSecondaryTextColor}}"
                     BorderColor="{AppThemeBinding Light={StaticResource DarkPageBackgroundColor}, Dark={StaticResource LightPageBackgroundColor}}"
                     BackgroundColor="{AppThemeBinding Light={StaticResource LightPageBackgroundColor}, Dark={StaticResource DarkPageBackgroundColor}}"

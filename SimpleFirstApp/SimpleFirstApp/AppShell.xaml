@@ -34,9 +34,6 @@
         <Tab Title="Exchanges" Route="drivers" Icon="shoppingbag.png">
             <ShellContent ContentTemplate="{DataTemplate tabViews:ExchangesView}" />
         </Tab>
-        <Tab Title="Changes" Route="drivers" Icon="shoppingbag.png">
-            <ShellContent ContentTemplate="{DataTemplate tabViews:CurrencyView}" />
-        </Tab>
     </TabBar>
 
 </Shell>

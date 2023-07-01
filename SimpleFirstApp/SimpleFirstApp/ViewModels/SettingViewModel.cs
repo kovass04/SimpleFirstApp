@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace SimpleFirstApp.ViewModels
 {
-    public class ProfileViewModel
+    public class SettingViewModel
     {
         #region Commands
 
@@ -24,11 +24,10 @@ namespace SimpleFirstApp.ViewModels
 
         #region Constructors
 
-        public ProfileViewModel()
+        public SettingViewModel()
         {
             BackCommand = new Command(BackCommandHandler);
             DarkModeToggleCommand = new Command(DarkModeToggleCommandHandler);
-
             Init = Initialize();
         }
 
